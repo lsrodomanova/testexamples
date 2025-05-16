@@ -1,4 +1,6 @@
-playwright
+playwright~=1.51.0
 pytest-playwright
-pytest
+pytest~=8.3.5
 allure-pytest
+sqlalchemy~=2.0.41
+mysql-connector-python~=9.3.0
