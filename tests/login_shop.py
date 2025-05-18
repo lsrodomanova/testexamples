@@ -2,18 +2,16 @@ import re
 # project/tests/test_login.py
 import pytest
 import allure
+from conftest import login_page_shop
 from playwright.sync_api import expect, Page
-from pytest_playwright.pytest_playwright import page
 
-from pages.login_page_shop import LoginPage
 
 
 @allure.feature('Авторизация')
 @allure.story('Авторизации недействительные учетные данные')
 @allure.severity(allure.severity_level.CRITICAL)
 @allure.title('Авторизаиця с недействительными учетными данными')
-def test_login_failure(page):
-    login_page_shop = LoginPage(page)
+def test_login_failure(login_page_shop):
     with allure.step('Открыть страницу авторизации'):
         login_page_shop.navigate()
     with allure.step('Ввести в форму авторизации недействительные учетные данные'):
@@ -29,8 +27,7 @@ def test_login_failure(page):
 @pytest.mark.parametrize('username, password', [
     ('bagovnet@red.ru', '12345678')
 ])
-def test_login_success(username, password, page):
-    login_page_shop = LoginPage(page)
+def test_login_success(username, password, login_page_shop):
     with allure.step('Открыть страницу авторизации'):
         login_page_shop.navigate()
     with allure.step('Ввести в форму авторизации недействительные учетные данные'):

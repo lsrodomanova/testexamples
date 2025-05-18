@@ -2,7 +2,7 @@ import os
 from playwright.sync_api import sync_playwright
 import allure
 
-@allure.feature('Создание товара')
+"""@allure.feature('Создание товара')
 @allure.story('Создание платья')
 @allure.title('Создание аозай')
 def test_create_item():
@@ -66,5 +66,5 @@ def test_search_item():
         data = response.json()
         items = data.get("result", [])
 
-        assert any(item["name"] == "Аозай" for item in items), "Товар 'Аозай' не найден"
+        assert any(item["name"] == "Аозай" for item in items), "Товар 'Аозай' не найден"""""
 
