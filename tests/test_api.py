@@ -32,7 +32,7 @@ def test_create_item():
     },
         )
     assert response.ok
-    assert response.status == 200
+    assert response.status == 200"""
 
 @allure.feature('Поиск товара')
 @allure.story('Поиск по названию')
@@ -66,5 +66,5 @@ def test_search_item():
         data = response.json()
         items = data.get("result", [])
 
-        assert any(item["name"] == "Аозай" for item in items), "Товар 'Аозай' не найден"""""
+        assert any(item["name"] == "Аозай" for item in items), "Товар 'Аозай' не найден"
 
