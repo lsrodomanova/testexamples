@@ -2,7 +2,7 @@ import os
 from playwright.sync_api import sync_playwright
 import allure
 
-"""@allure.feature('Создание товара')
+@allure.feature('Создание товара')
 @allure.story('Создание платья')
 @allure.title('Создание аозай')
 def test_create_item():
@@ -22,7 +22,7 @@ def test_create_item():
         response = api_request_context.post(
             "/api/items/create/",
             data={
-        "name":"Аозай красный",
+        "name":"Аозай",
         "section":"Платья",
         "description":"Аозай модный",
         "color":"BLUE",
@@ -32,7 +32,7 @@ def test_create_item():
     },
         )
     assert response.ok
-    assert response.status == 200"""
+    assert response.status == 200
 
 @allure.feature('Поиск товара')
 @allure.story('Поиск по названию')

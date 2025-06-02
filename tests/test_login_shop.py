@@ -15,9 +15,9 @@ def test_login_failure(login_page_shop):
     with allure.step('Открыть страницу авторизации'):
         login_page_shop.navigate()
     with allure.step('Ввести в форму авторизации недействительные учетные данные'):
-        login_page_shop.login('invalid_user', 'invalid_password')
+        login_page_shop.login('invalid_user@tr.com', 'invalid_password')
     with allure.step('Отображается ошибка - Email пароль неверный!.'):
-        expect(login_page_shop.error_message).to_have_text('Email пароль неверный!')
+        expect(login_page_shop.error_message).to_have_text('Reset FocusEmail  пароль неверный!OKReset Focus')
 
 
 @allure.feature('Login')
