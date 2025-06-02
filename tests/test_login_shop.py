@@ -32,7 +32,5 @@ def test_login_success(username, password, login_page_shop):
         login_page_shop.navigate()
     with allure.step('Ввести в форму авторизации недействительные учетные данные'):
         login_page_shop.login(username, password)
-    # with allure.step('Отображается личный кабинет с именем пользователя'):
-    # expect(login_page_shop.user_profile_button).to_have_text('Lyuba')
     with allure.step('Отображается личный кабинет с именем пользователя'):
         expect(login_page_shop.user_profile_button).to_have_text('Lyuba')
