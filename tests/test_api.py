@@ -31,8 +31,12 @@ def test_create_item():
         "params":"dress"
     },
         )
-    assert response.ok
-    assert response.status == 200
+
+        assert response.ok
+        assert response.status == 200
+        data = response.json()
+        item_id = data["result"]["id"]
+        print(item_id)
 
 @allure.feature('Поиск товара')
 @allure.story('Поиск по названию')
@@ -68,3 +72,20 @@ def test_search_item():
 
         assert any(item["name"] == "Аозай" for item in items), "Товар 'Аозай' не найден"
 
+
+@allure.feature('Удаление товара')
+@allure.story('Удаление товара')
+@allure.title('Удаление товара')
+def test_delete_item():
+    with sync_playwright() as p:
+        api_request_context = p.request.new_context(base_url="http://shop.bugred.ru")
+
+        # Удалить товар.
+        response = api_request_context.post(
+            "/api/items/delete/",
+            data={
+        "id": id_item
+    },
+        )
+    assert response.ok
+    assert response.status == 200
