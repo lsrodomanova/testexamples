@@ -24,13 +24,13 @@ def test_login_failure(login_page_shop):
 @allure.story('Login with valid credentials')
 @allure.severity(allure.severity_level.CRITICAL)
 @allure.title('Авторизаиця с корректными учетными данными')
-@pytest.mark.parametrize('username, password', [
-    ('bagovnet@red.ru', '12345678')
+@pytest.mark.parametrize('username, password, text',  [
+    ('bagovnet@red.ru', '12345678', 'Lyuba')
 ])
-def test_login_success(username, password, login_page_shop):
+def test_login_success(username, password, login_page_shop, text):
     with allure.step('Открыть страницу авторизации'):
         login_page_shop.navigate()
     with allure.step('Ввести в форму авторизации недействительные учетные данные'):
         login_page_shop.login(username, password)
     with allure.step('Отображается личный кабинет с именем пользователя'):
-        expect(login_page_shop.user_profile_button).to_have_text('Lyuba')
+        expect(login_page_shop.user_profile_button).to_have_text(text)
